@@ -1,0 +1,97 @@
+body{
+  width: 100%;
+  min-height: 100vh;
+  background: #c850c0;
+  background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+  background: -o-linear-gradient(45deg, #4158d0, #c850c0);
+  background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
+  background: linear-gradient(45deg, #4158d0, #c850c0);
+  margin: 1rem;
+  padding: 1rem;
+  max-width: 70%;
+  margin: 2rem auto;
+  font-family: "Open Sans", sans-serif;
+
+}
+
+table, th, td {
+
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+  border-radius: 25px;
+
+  }
+  th, td {
+    vertical-align: bottom;
+    padding: 5px;
+    text-align: left;
+  }
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+button{  background-color: grey;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+}
+button:hover {
+  background-color: green;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+ #show,#show1,#show2,#show3,#show4,#s4showIfyes,#show5,#show6,#show6B,#continue7,#s8q1showIfyes,#s8q2showIfyes,#show7,#show8,#show9,#continue11,#hidden,#score8 {
+    display:none;
+    padding:10px;
+  }
+.form-style
+          {
+              max-width:75%;
+              background:#fff;
+              border-radius:2px;
+
+          }
+#timer_css
+          {
+            border: 1px solid black;
+            width: 10%;
+            text-align: center;
+            background-color: grey;
+            position: fixed;
+            right: 35px;
+            top: 20px;
+          }
+strong
+      {
+
+          max-width:100%;
+          margin:50px auto;
+          text-align: center;
+      }
+@media screen and (min-width: 680px) {
+  body {
+    background-color: lightgray;
+  }
+  textarea{
+    color: #fdfdfe;
+    font-size: large;
+    background: #c850c0;
+    background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+    background: -o-linear-gradient(45deg, #4158d0, #c850c0);
+    background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
+    background: linear-gradient(45deg, #4158d0, #c850c0);}
+}
+.summary_page{
+  max-width:75%;
+  background:#fff;
+  border-radius:2px;
+  border: 2px solid blue;
+
+}
+
+

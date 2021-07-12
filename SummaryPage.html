@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="formCSS.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="formQuestionsJS.js" defer> </script>
+</head>
+<body>
+<script type="text/javascript">
+
+  window.onload = function showSummary() {
+
+    document.getElementById("placeHolder").innerHTML =
+
+      "Section 1: " + localStorage.getItem("score") + "<br><br><br>" +
+      "Section 2: " + localStorage.getItem("score2") + "<br><br><br>" +
+      "Section 3: " + localStorage.getItem("score3") + "<br><br><br>" +
+      "Section 4: " + localStorage.getItem("score4") + "<br><br><br>" +
+      "Section 5: " + localStorage.getItem("score5") + "<br><br><br>" +
+      "Section 6: " + localStorage.getItem("score6") + "<br><br><br>" +
+      "Section 7: " + localStorage.getItem("score7") + "<br><br><br>" +
+      "Section 8: " + localStorage.getItem("score8") + "<br><br><br>" +
+      "Section 9:" + localStorage.getItem("score9") + "<br><br>" +
+      "Section 10: " + localStorage.getItem("score10") + "<br><br><br>" +
+      "Section 11: " + localStorage.getItem("score11") + "<br><br><br>" +
+    "Total Score Summary:"  + localStorage.getItem("totalPoints");
+
+  }
+
+</script>
+
+
+    <h1>Overall Score and Summary for each section </h1>
+
+<div class="summary_page">
+      <p id="placeHolder"> </p>
+</div>
+
+</body>
+</html>

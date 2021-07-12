@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>questions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<link rel="stylesheet" type="text/css" href="formCSS.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="formQuestionsJS.js" defer> </script>
+
+<body onload="startAdPage();">
+
+
+
+<div id="timer_css">
+  <h3>Timer:</h3>
+  <p id="timer">5:00</p>
+</div>
+<strong>
+<label for="age">Choose an age category before starting the questionnaire:</label>
+
+<select name="age" id="age">
+  <option value="under18"></option>
+  <option value="18-25">18-25</option>
+  <option value="25-35">25-35</option>
+  <option value="over35">Over 35</option>
+</select>
+
+
+<br>
+Please consider the following questions and identify your level of agreement with the statement:<br>
+ 5. Strongly agree<br>
+  4. Agree<br>
+  3. Neutral/ Don’t know<br>
+  2. Disagree<br>
+  1. Strongly disagree</strong><br>
+
+<input id="info" type="text" />
+<div id="hidden">
+<form class="form-style">
+  <div style="overflow-x:auto;">
+  <table>
+
+    <div id="demo"></div>
+
+    <tr>
+      <th><label onmouseover="tooltip('help')" onmouseout="closetooltip()">Section 1: Verification **</label></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+    <tr>
+      <td><p id="firstQ">I and/or my colleagues know where to get information to help us analyse
+        the business case for consciously attracting people with disabilities as members  </p></td>
+      <td><label> <input type="radio" name="q1"  value="1"  ></label></td>
+      <td> <label><input type="radio" name="q1"  value="2" ></label></td>
+      <td> <label> <input type="radio" name="q1" value="3" ></label></td>
+      <td> <label> <input type="radio" name="q1" value="4" ></label></td>
+      <td> <label> <input type="radio" name="q1" value="5" ></label></td>
+    </tr>
+    <tr>
+      <td> <p id="SecondQ">I/my colleagues have researched the scope for increasing the participation of
+        the broader community, in particular people with disabilities     </p></td>
+      <td><label> <input  type="radio" name="q2" value="1" ></label></td>
+      <td> <label> <input type="radio" name="q2" value="2" ></label></td>
+      <td> <label><input type="radio" name="q2" value="3" ></label> </td>
+      <td> <label> <input type="radio" name="q2" value="4" ></label></td>
+      <td> <label> <input type="radio" name="q2" value="5" > </label></td>
+    </tr>
+    <tr>
+      <td><p id="thirdQ">I know of disability service providers that I could link with in the local community     </p></td>
+      <td>  <label> <input type="radio" name="q3" value="1" ></label></td>
+      <td> <label> <input type="radio" name="q3" value="2" ></label></td>
+      <td> <label> <input type="radio" name="q3" value="3" ></label></td>
+      <td> <label> <input type="radio" name="q3" value="4" ></label></td>
+      <td> <label> <input type="radio" name="q3" value="5" ></label></td>
+    </tr>
+    <tr>
+      <td> <p id="fourthQ">My colleagues and I inclusive our services to provide for people with disabilities  </p></td>
+      <td><label> <input type="radio" name="q4" value="1" ></label></td>
+      <td><label> <input type="radio" name="q4" value="2" ></label></td>
+      <td><label> <input type="radio" name="q4" value="3" ></label></td>
+      <td><label> <input type="radio" name="q4" value="4" ></label></td>
+      <td><label> <input type="radio" name="q4" value="5" ></label></td>
+    </tr>
+  </table>
+  </div>
+</form>
+
+  <button type="button" id="continue" value="Continue" >Continue</button>
+
+  <textarea cols="100" rows="4" readonly input id="score" type = "text" style="display: none" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+</div>
+<div id="show" >
+<form class="form-style">
+  <div style="overflow-x:auto;">
+<table >
+
+  <div id="demo1"></div>
+  <tr>
+    <th><p onmouseover="tooltip('help')" onmouseout="closetooltip()">Section 2: Value Proposition** </p></th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+  </tr>
+  <tr>
+    <td><p id="s2FirstQ">My colleagues and I have a significant contribution to make
+      to the quality of life of people in our community, including people with disabilities   </p></td>
+    <td><label> <input  type="radio" name="s2q1" value="1" ></label></td>
+    <td><label> <input type="radio" name="s2q1" value="2" ></label></td>
+    <td> <label> <input type="radio" name="s2q1" value="3" ></label></td>
+    <td> <label> <input type="radio" name="s2q1" value="4" ></label></td>
+    <td> <label> <input type="radio" name="s2q1" value="5" ></label></td>
+  </tr>
+  <tr>
+    <td> <p id="s2SecondQ">My colleagues and I have the scope to improve opportunities for participation
+      in fitness activities for people living in, or visiting our community, including people with disabilities     </p></td>
+    <td> <label><input  type="radio" name="s2q2" value="1" ></label></td>
+    <td> <label> <input type="radio" name="s2q2" value="2" ></label></td>
+    <td> <label><input type="radio" name="s2q2" value="3" ></label></td>
+    <td> <label> <input type="radio" name="s2q2" value="4" ></label></td>
+    <td> <label> <input type="radio" name="s2q2" value="5" ></label> </td>
+  </tr>
+  <tr>
+    <td><p id="s2ThirdQ">The benefits of increasing our UniversAbility  to increase participation are clear   </p></td>
+    <td>  <label> <input  type="radio" name="s2q3" value="1" ></label></td>
+    <td> <label> <input type="radio" name="s2q3" value="2" ></label></td>
+    <td> <label> <input type="radio" name="s2q3" value="3" ></label></td>
+    <td> <label><input type="radio" name="s2q3" value="4" ></label></td>
+    <td> <label> <input type="radio" name="s2q3" value="5" ></label></td>
+  </tr>
+  <tr>
+    <td> <p id="s2FourthQ">My colleagues and I play a major role in providing health services to the entire community, including people with disabilities      </p></td>
+    <td><label> <input  type="radio" name="s2q4" value="1" ></label></td>
+    <td><label> <input type="radio" name="s2q4" value="2" ></label></td>
+    <td><label> <input type="radio" name="s2q4" value="3" ></label></td>
+    <td><label><input type="radio" name="s2q4" value="4" ></label></td>
+    <td><label> <input type="radio" name="s2q4" value="5" ></label></td>
+
+  </tr>
+
+  <tr>
+    <td> <p id="s2FifthQ">The UniversAbility  of our fitness services increases the job satisfaction and turnover of my staff      </p></td>
+    <td><label> <input  type="radio" name="s2q5" value="1"></label></td>
+    <td><label> <input type="radio" name="s2q5" value="2"></label></td>
+    <td><label> <input type="radio" name="s2q5" value="3"></label></td>
+    <td><label><input type="radio" name="s2q5" value="4"></label></td>
+    <td><label> <input type="radio" name="s2q5" value="5"></label></td>
+
+  </tr>
+
+</table>
+  </div>
+</form>
+  <button type="button" id="continue1" value="Continue" >Continue</button>
+
+  <textarea cols="100" rows="3" readonly input id="score2" type = "text" style="display: none" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+
+</div>
+<div id="show1" >
+  <form class="form-style">
+<table>
+
+  <tr>
+    <th><p>Section 3: Vision </p></th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+    <th>4</th>
+    <th>5</th>
+  </tr>
+  <tr>
+    <td><p id="s3firstQ">My colleagues and I envision ourselves as leaders of cultural change   </p></td>
+    <td><label> <input  type="radio" name="s3q1" value="1"></label></td>
+    <td><label> <input type="radio" name="s3q1" value="2"></label></td>
+    <td> <label> <input type="radio" name="s3q1" value="3"></label></td>
+    <td> <label> <input type="radio" name="s3q1" value="4"></label></td>
+    <td> <label> <input type="radio" name="s3q1" value="5"></label></td>
+  </tr>
+
+  <tr>
+    <td><label><p id="s3secondQ">I and/or my colleagues have identified set targets for increasing the
+      UniversAbility  of our services and are putting strategies in place to achieve these goals<strong>(5)</strong>  </p></label></td>
+    <td><label> <input  type="radio" name="s3q2" id="s3q2" value="5" /></label></td></tr>
+  <tr> <td><label><p id="s3thirdQ">I and/or my colleagues have identified scope for increasing the UniversAbility  of our services<strong>(4)</strong> </p></label></td>
+     <td><label> <input  type="radio" name="s3q2" id="s3q3" value="4" /></label></td></tr>
+  <tr> <td><label><p id="s3fourthQ">I THINK there may be scope for inclusivizing our services but am not sure<strong>(3)</strong>  </p></label></td>
+     <td><label> <input  type="radio" name="s3q2" id="s3q4" value="3" /></label></td></tr>
+  <tr> <td><label><p id="s3fifthQ">I have never considered inclusivizing our services until now <strong>(2)</strong> </p></label></td>
+    <td><label> <input  type="radio" name="s3q2" id="s3q5" value="2" /></label></td>
+  </tr>
+  <tr> <td><label><p id="s3sixthQ">I don’t think inclusivizing our services, in particular for people with
+    disabilities, is really an option for us but won’t rule it out completely until it has been fully explored <strong>(1)</strong> </p></label></td>
+    <td><label> <input  type="radio" name="s3q2" id="s3q6" value="1" /></label></td>
+  </tr>
+</table>
+  </form>
+    <button type="button" id="continue2" value="Continue" >Continue</button>
+
+    <textarea cols="100" rows="3" readonly input id="score3" type = "text" style="display: none" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+
+</div>
+
+<div id="show2" >
+<form class="form-style">
+  <table>
+
+    <tr><th><p>Section 4: Philosophy </p></th></tr>
+    <tr>
+      <td><label><p id="s4firstQ">1.	Does your organisation have stated ideals in your
+        strategic plan or other management documents which relate UniversAbility of your services?  </p></label></td>
+      <td><label> <input  type="radio" name="s4yes_no" value="10" onclick="document.getElementById('s4showIfyes').style.display = 'block'" />Yes</label></td>
+      <td><label> <input  type="radio" name="s4yes_no" value="0" onclick="document.getElementById('s4showIfyes').style.display = 'none'"/>No</label></td>
+    </tr>
+
+    <tr id="s4showIfyes">
+      <td><label><p id="s4secondQ">2.	Do you think an inclusive philosophy is a lived experience by: </p></label></td>
+      <td><label> <input  type="checkbox" name="s4check" value="10" />a) Management</label></td>
+      <td><label> <input  type="checkbox" name="s4check1" value="10" />b) Staff</label></td>
+      <td><label> <input  type="checkbox" name="s4check2" value="10" />c) Customers</label></td>
+    </tr>
+  </table>
+</form>
+  <button type="button"  id="continue3" value="Continue" >Continue</button>
+
+  <textarea cols="100" rows="3" readonly input id="score4" type = "text" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+
+</div>
+<div id="show3" >
+<form class="form-style">
+  <table>
+
+    <tr><th><p>Section 5: Policy </p> </th></tr>
+    <tr>
+      <td><label><p id="s5firstQ">1.Does your charging policy account for the varied needs of your customers? E.g. No charge for personal assistants  </p></label></td>
+      <td><label> <input  type="radio" name="s5yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s5yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s5secondQ">2.	Do you track and monitor the proportion of your club members who experience disabilities?  </p></label></td>
+      <td><label> <input  type="radio" name="s5q2yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s5q2yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s5thirdQ">3.	Have you a budget allocated to:
+        (a)	increasing the UniversAbility  of your services? (eg. facilities, equipment and staff training)
+      </p></label></td>
+      <td><label> <input  type="radio" name="s5q3yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s5q3yes_no" value="0" />No</label></td>
+      <td><label> <input  type="radio" name="s5q3yes_no" value="10" />Accessible</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s5thirdQ_B">(b)	increasing the UniversAbility  of your policies?   </p></label></td>
+      <td><label> <input  type="radio" name="s5q3B_yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s5q3B_yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s5fourthQ">4.	Are you familiar with the national legislation that relates to disability service provision?  </p></label></td>
+      <td><label> <input  type="radio" name="s5q4yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s5q4yes_no" value="0" />No</label></td>
+    </tr>
+  </table>
+</form>
+  <button type="button"  id="continue4" value="Continue" >Continue</button>
+
+  <textarea cols="100" rows="3" readonly input id="score5" type = "text" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+
+
+
+</div>
+<div id="show4" >
+<form class="form-style">
+  <table>
+
+    <tr><th><p>Section 6: Processes  </p> </th></tr>
+    <tr>
+      <td><label><p id="s6firstQ">1.	Do you engage with disability groups in your local community?  </p></label></td>
+      <td><label> <input  type="radio" name="s6q1yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s6q1yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s6secondQ">2. Have you forged any alliance/partnership with any disability organisation?  </p></label></td>
+      <td><label> <input  type="radio" name="s6q2yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s6q2yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s6thirdQ">3. Have you or your staff embraced any assistive technologies (E.g. Assist-Mi app)?  </p></label></td>
+      <td><label> <input  type="radio" name="s6q3yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s6q3yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s6fourthQ">4.Have you or your colleagues undertaken any research on Inclusivizing your service?  </p></label></td>
+      <td><label> <input  type="radio" name="s6q4yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s6q4yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s6fifthQ">5.Do you encourage your staff to engage in customer satisfaction conversations with different user groups?  </p></label></td>
+      <td><label> <input  type="radio" name="s6q5yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s6q5yes_no" value="0" />No</label></td>
+    </tr>
+  </table>
+ </form>
+
+  <button type="button"  id="continue5" value="Continue" >Continue</button>
+
+  <textarea cols="100" rows="3" readonly input id="score6" type = "text" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+
+
+</div>
+<div id="show5">
+<form class="form-style">
+  <table>
+
+    <tr><th><p>Section 7: Perception </p> </th></tr>
+    <tr>
+      <td><label><p id="s7firstQ">1.Do you gather information from your users on their
+        beliefs about fitness being a fundamental right for all? </p></label></td>
+      <td><label> <input  type="radio" name="s7q1yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s7q1yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s7secondQ">2.	Do you gather information from people who do
+        NOT use your facility on fitness being a fundamental right for all? </p></label></td>
+      <td><label> <input  type="radio" name="s7q2yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s7q2yes_no" value="0" />No</label></td>
+    </tr>
+  </table>
+</form>
+
+  <button type="button"  id="continue6" value="Continue" >Continue</button>
+
+  <textarea cols="100" rows="3" readonly input id="score7" type = "text" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+
+
+</div>
+<div id="hide8">
+<div id="show6">
+<form class="form-style">
+  <table>
+    <tr><th><p>Section 8: Programmes <br>
+      This section refers to programmes that you deliver, or support
+      delivery of, to consciously inclusivize your services</p> </th></tr>
+    <tr>
+      <td><label><p id="s8firstQ">1. Do you and your staff provide programmes
+        specifically for people with disabilities? </p></label></td>
+      <td><label> <input  type="radio" name="s8q1yes_no" value="0" onclick="document.getElementById('s8q1showIfyes').style.display = 'block'; document.getElementById('show6B').style.display = 'block';" />Yes</label></td>
+      <td><label> <input  type="radio" name="s8q1yes_no" value="0" onclick="document.getElementById('s8q1showIfyes').style.display = 'none'; document.getElementById('show6B').style.display = 'block';" />No</label></td>
+    </tr>
+  </table>
+</form>
+</div>
+<form class="form-style">
+  <table id="s8q1showIfyes">
+    <tr>
+      <th>Disability Category</th> <th> Yes</th> </tr>
+    <tr>
+      <td><label><p>Physical disabilities </p></label></td>
+      <td><label> <input  type="checkbox" name="s8check1" value="10" /></label></td>
+    </tr>
+      <tr>
+      <td><label><p>Intellectual disabilities </p></label></td>
+      <td><label> <input  type="checkbox" name="s8check2" value="10" /></label></td>
+    </tr>
+    <tr>
+      <td><label><p>Sensory disabilities </p></label></td>
+      <td><label> <input  type="checkbox" name="s8check3" value="10" /></label></td>
+    </tr>
+    <tr>
+      <td><label><p>Mental health difficulties </p></label></td>
+      <td><label> <input  type="checkbox" name="s8check4" value="10" /></label></td>
+    </tr>
+  </table>
+</form>
+<div id="show6B">
+<form class="form-style">
+  <table>
+ <tr>
+  <td><label><p id="s8secondQ">2.	Do people with disabilities use the gym, pool, or
+    participate in group activities etc. alongside other members?  </p></label></td>
+  <td><label> <input  type="radio" name="s8q2yes_no" value="0" onclick="document.getElementById('s8q2showIfyes').style.display = 'block';document.getElementById('continue7').style.display = 'block'"/>Yes</label></td>
+  <td><label> <input  type="radio" name="s8q2yes_no" value="0" onclick="document.getElementById('s8q2showIfyes').style.display = 'none'; document.getElementById('continue7').style.display = 'block'"/>No</label></td>
+</tr>
+</table>
+</form>
+</div>
+
+<form id="s8q2showIfyes" class="form-style">
+  <table >
+    <tr>
+      <th>Disability Category</th> <th> Yes</th> </tr>
+    <tr>
+      <td><label><p>Physical disabilities </p></label></td>
+      <td><label> <input  type="checkbox" name="s8check5" value="10" /></label></td>
+    </tr>
+    <tr>
+      <td><label><p>Intellectual disabilities </p></label></td>
+      <td><label> <input  type="checkbox" name="s8check6" value="10" /></label></td>
+    </tr>
+    <tr>
+      <td><label><p>Sensory disabilities </p></label></td>
+      <td><label> <input  type="checkbox" name="s8check7" value="10" /></label></td>
+    </tr>
+    <tr>
+      <td><label><p>Mental health difficulties </p></label></td>
+      <td><label> <input  type="checkbox" name="s8check8" value="10" /></label></td>
+    </tr>
+  </table>
+</form>
+
+  <button type="button" id="continue7" value="Continue" >Continue</button>
+  <textarea cols="100" rows="3" readonly input id="score8" type = "text" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+
+</div>
+<div id="show7">
+<form class="form-style">
+  <table>
+
+    <tr>
+      <th><p>Section 9: People </p> </th>
+    </tr>
+
+    <tr>
+      <td><label><p >1.	Have you or any of your staff/volunteers had training
+        that facilitates the inclusion of people with disabilities? </p></label></td></tr>
+    <tr>
+      <td id="s9firstQ" >a.	Operational (teaching/instructional staff)</td>
+      <td><label> <input  type="radio" name="s9q1yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s9q1yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td id="s9secondQ" >b.	Management </td>
+      <td><label> <input  type="radio" name="s9q2yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s9q2yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td id="s9thirdQ">c. Front of house</td>
+      <td><label> <input  type="radio" name="s9q3yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s9q3yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td id="s9fourthQ">d. Stakeholders/contracted staff</td>
+      <td><label> <input  type="radio" name="s9q4yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s9q4yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s9fifthQ">2.	Do you gather information from people who do
+        NOT use your facility on fitness being a fundamental right for all? </p></label></td>
+      <td><label> <input  type="radio" name="s9q5yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s9q5yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s9sixthQ">3.	Is there a member of staff allocated as a
+        liaison/point person for customers with disabilities?  </p></label></td>
+      <td><label> <input  type="radio" name="s9q6yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s9q6yes_no" value="0" />No</label></td>
+    </tr>
+  </table>
+</form>
+
+  <button type="button"  id="continue8" value="Continue" >Continue</button>
+
+  <textarea cols="100" rows="3" readonly input id="score9" type = "text" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+
+</div>
+<div id="show8">
+<form class="form-style">
+  <table>
+    <tr>
+      <th><p>Section 10: Physical Access/Place</p> </th>
+    </tr>
+    <tr>
+      <td><label><p id="s10firstQ">1.	Have you or your colleagues carried
+        out an audit to evaluate the UniversAbility  of your facility </p></label></td>
+      <td><label> <input  type="radio" name="s10q1yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s10q1yes_no" value="0" />No</label></td>
+    </tr>
+  </table>
+</form>
+
+<form class="form-style">
+  <table>
+    <tr>
+      <td><label><p>2.Does your facility( or the facility you use)
+        consider the following disabilities when evaluating UniversAbility : </p></label></td>
+    </tr>
+    <tr>
+      <th>Disability Category</th> <th> Yes</th>
+    </tr>
+    <tr>
+      <td><label><p>Physical disabilities </p></label></td>
+      <td><label> <input  type="checkbox" name="s10check1" value="10" /></label></td>
+    </tr>
+    <tr>
+      <td><label><p>Intellectual disabilities </p></label></td>
+      <td><label> <input  type="checkbox" name="s10check2" value="10" /></label></td>
+    </tr>
+    <tr>
+      <td><label><p>Sensory disabilities </p></label></td>
+      <td><label> <input  type="checkbox" name="s10check3" value="10" /></label></td>
+    </tr>
+    <tr>
+      <td><label><p>Mental health difficulties </p></label></td>
+      <td><label> <input  type="checkbox" name="s10check4" value="10" /></label></td>
+    </tr>
+  </table>
+</form>
+
+  <button type="button"  id="continue9" value="Continue" >Continue</button>
+  <textarea cols="100" rows="3" readonly input id="score10" type = "text" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+</div>
+  <div id="show9">
+<form class="form-style">
+  <table>
+    <tr>
+      <th><p>Section 11: Promotion </p> </th>
+    </tr>
+    <tr>
+      <td><label><p id="s11firstQ">1.	Is your promotional material inclusive of people with disabilities? </p></label></td>
+      <td><label> <input  type="radio" name="s11q1yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s11q1yes_no" value="0" />No</label></td>
+    </tr>
+    <tr>
+      <td><label><p id="s11secondQ">2.	Have you or your colleagues/staff developed any
+        promotional materials with the aim of attracting people with disabilities?  </p></label></td>
+      <td><label> <input  type="radio" name="s11q2yes_no" value="10" />Yes</label></td>
+      <td><label> <input  type="radio" name="s11q2yes_no" value="0" />No</label></td>
+    </tr>
+  </table>
+</form>
+  <button type="button"  id="continue10" value="Continue" onclick="calTotal()" >Continue</button>
+  <textarea cols="100" rows="3" readonly input id="score11" type = "text" style="color: black; border-style: none; border-color: inherit; border-width: medium; background-color: lightgray" text="0" >
+    </textarea>
+</div>
+
+<button type="button"  id="continue11" value="Process" onclick="window.location.href='SummaryPage.html';" >Process</button>
+
+</body>
+</html>
